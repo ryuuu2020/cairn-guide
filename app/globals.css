@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Template C: Field Journal (Survival/Crafting)
+   Color System: Warm Paper + Moss Green + Terracotta
+   Design: Organic, notebook-inspired, asymmetric,
+           hand-drawn separators, lots of whitespace.
+   Anti-AI: No dark mode, no bento grid, no centered
+            hero, no Inter as heading.
+   ============================================ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-field-paper text-bark font-body;
+  }
+
+  ::selection {
+    @apply bg-moss-light text-moss-dark;
+  }
+
+  /* Subtle scrollbar - warm */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d4c5b2;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c17f59;
+  }
+}
+
+@layer components {
+  /* Hand-drawn separator line */
+  .field-divider {
+    @apply w-full h-px;
+    position: relative;
+    background:
+      linear-gradient(90deg, transparent, #5b8c5a 15%, #5b8c5a 85%, transparent);
+    opacity: 0.3;
+  }
+  .field-divider::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 5px;
+    background: #5b8c5a;
+    opacity: 0.4;
+    clip-path: polygon(0% 50%, 20% 0%, 40% 100%, 60% 0%, 80% 100%, 100% 50%);
+  }
+
+  /* Journal card - warm paper feel */
+  .journal-card {
+    @apply bg-white/80 border border-clay/50 shadow-field
+           transition-all duration-300;
+  }
+  .journal-card:hover {
+    @apply shadow-field-hover -translate-y-0.5;
+    border-color: #c17f59;
+  }
+
+  /* Horizontal scroll nav pill */
+  .nav-pill {
+    @apply inline-flex items-center px-5 py-2.5 rounded-pill
+           text-sm font-medium whitespace-nowrap
+           transition-all duration-200
+           text-bark-light hover:text-bark
+           hover:bg-field-paper-warm;
+  }
+  .nav-pill.active {
+    @apply bg-moss text-white shadow-sm;
+  }
+
+  /* Tag badge */
+  .field-tag {
+    @apply inline-flex items-center px-3 py-1 rounded-pill
+           text-xs font-semibold tracking-wide;
+  }
+  .field-tag.moss {
+    @apply bg-moss-light text-moss-dark;
+  }
+  .field-tag.terracotta {
+    @apply bg-terracotta-light text-terracotta-dark;
+  }
+  .field-tag.stone {
+    @apply bg-clay/50 text-bark-light;
+  }
+
+  /* Crafting recipe card */
+  .recipe-card {
+    @apply bg-white/90 border border-clay/40 shadow-inner-field
+           p-4 transition-all duration-200;
+  }
+  .recipe-card:hover {
+    border-color: #c17f59;
+  }
+
+  /* Sidebar info block */
+  .field-sidebar-block {
+    @apply border-l-2 border-moss pl-5 py-1;
+  }
+
+  /* Number circle - for step guides */
+  .step-number {
+    @apply w-8 h-8 rounded-full bg-moss-light text-moss-dark
+           flex items-center justify-center font-display text-sm font-bold
+           shrink-0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .text-text-primary { color: #e8e6e3; }
+  .text-text-muted { color: #8b8d90; }
+  .text-accent { color: #4a9eff; }
+  .text-accent-warm { color: #f0803c; }
+  .text-success { color: #4caf50; }
+  .text-danger { color: #e05555; }
+  .bg-bg { background-color: #1a1d21; }
+  .bg-bg-card { background-color: #23272b; }
+  .bg-bg-elevated { background-color: #2c3136; }
+  .border-border { border-color: #3a3d42; }
+  .hover\:bg-bg-elevated:hover { background-color: #2c3136; }
+}
