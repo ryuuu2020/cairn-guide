@@ -304,6 +304,13 @@ export default function HomePage() {
 
       {/* ===== Footer ===== */}
       <footer className="max-w-6xl mx-auto px-4 lg:px-8 py-10">
+        {/* More Game Guides */}
+        <div className="mb-6 pb-6 border-b border-clay/30">
+          <p className="font-body text-xs text-stone mb-3 text-center">More Game Guides</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://solarpunk-game-wiki.vercel.app" className="font-body text-xs text-bark-light hover:text-bark transition-colors">Solarpunk Guide</a>
+          </div>
+        </div>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6">
             <span className="font-body text-sm text-stone">
