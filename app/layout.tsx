@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import SchemaMarkup from '@/shared/SchemaMarkup';
+
 
 export const metadata: Metadata = {
   title: 'Cairn - Field Journal',
   description: 'The ultimate Cairn guide with builds, strategies, tier lists, and in-depth walkthroughs.',
-  metadataBase: new URL('https://cairn-guide.vercel.app'),
+  metadataBase: new URL("https://cairn.gguidehub.com"),
   openGraph: {
     title: 'Cairn',
     description: 'The ultimate Cairn guide with builds, strategies, tier lists, and in-depth walkthroughs.',
